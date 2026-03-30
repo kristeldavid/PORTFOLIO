@@ -1,0 +1,146 @@
+<! DOCTYPE html>
+<html>
+    <head>
+        <title>Lab exercise #3 HTML Forms </title>
+    </head >
+    <body>
+        <form>
+            <fieldset>
+                <legend><b>Request for proposal </b></legend>
+                    <table>
+                        <tr>
+                            <td>Your Company:</td>
+                            <td><input type= "text"></td>
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td><input type= "email"></td>
+                            </tr>
+                            <tr>
+                                <td> Username:</td>
+                                <td><input type="text" value="telly"></td>
+                            </tr>
+                            <tr>
+                                <td>Password:</td>
+                                <td><input type = "password" value="123456" ></td>
+                            </tr>
+                            <tr>
+                                <td>Your business:</td>
+                                <td>
+                                    <textarea rows="5"  cols="30">
+                                        Briefly describe your business in this place:
+                                    </textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Company size :</td>
+                                <td>
+                                    <input type = "radio"  name="size">Less than 10 <br>
+                                     <input type = "radio"  name="size">11 to 50 <br>
+                                      <input type = "radio"  name="size">50 to 200 <br>
+                                       <input type = "radio"  name="size">over 200 <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td. Services :</td>
+                                <td>
+                                    <input type="checkbox"> Brand Identity
+                                     <input type="checkbox"> New Website
+                                      <input type="checkbox"> Web Redesign
+                                      <br>
+                                </td>
+                            </tr>
+                            <tr>
+                            <td> Timeline:</td>
+                            <td>
+                                <select >
+                                    <option> imediately</option>
+                                    <option> 1-2 weeks</option>
+                                    <option> 3-6 weeks</option>
+                                    <option> 7-2 months</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="Submit" value="Send to dev/design"></td>
+                        </tr>
+                    </table>
+                </fielset>
+            </form>
+        </body>
+<div style="margin-top: 20px;">
+    <strong onclick="openProof()" 
+        style="cursor: pointer; color: #f60b2e; text-decoration: underline; font-size: 19px; font-family: sans-serif;">
+       CLICK HERE TO VIEW TASK PROOF
+    </strong>
+</div>
+
+<div id="proofModal" class="modal-overlay">
+    <span class="close-btn" onclick="closeProof()">&times;</span>
+    <img class="full-screen-img" id="imgSource" src="c:\Users\Administrator\Desktop\FORMS\SS IN FORMS.png">
+</div>
+
+<style>
+
+.modal-overlay {
+    display: none; 
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); 
+    text-align: center;
+}
+
+.full-screen-img {
+    margin: auto;
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #e191b2;
+}
+</style>
+
+<script>
+
+function openProof() {
+    document.getElementById("proofModal").style.display = "flex";
+    document.getElementById("proofModal").style.alignItems = "center";
+    document.getElementById("proofModal").style.justifyContent = "center";
+    document.body.style.overflow = "hidden"; 
+}
+
+function closeProof() {
+    document.getElementById("proofModal").style.display = "none";
+    document.body.style.overflow = "auto"; 
+}
+
+window.onclick = function(event) {
+    let modal = document.getElementById("proofModal");
+    if (event.target == modal) {
+        closeProof();
+    }
+}
+</script>
+</html>             

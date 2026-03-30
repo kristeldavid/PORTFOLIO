@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Map</title>
+</head>
+<body>
+
+<img src="c:\Users\Administrator\Desktop\MAP\mymap.jpeg" usemap="#image-map">
+
+	<map name="image-map">
+		<area target="_blank" alt="Click to go to Computer Science Org" title="one" href="https://www.computerscience.org/" coords="790,260,834,264,837,370,781,370" shape="poly">
+		<area target="_blank" alt="Click to go to College of Business and Technology Home Page" title="two" href="https://asingan.psu.edu.ph/college-of-technology-and-business/" coords="516,269,621,351" shape="rect">
+		<area target="_blank" alt="Click to go to Department IC Technology Home Page" title="three" href="https://dict.gov.ph/" coords="397,542,433,540,424,456,391,454,361,512,361,540" shape="poly">
+		<area target="_blank" alt="Click to go to Harper Library Home Page" title="four" href="https://www.harper-adams.ac.uk/study/902/the-library/" coords="1048,596,63" shape="circle">
+	</map>
+</body>
+<title>Task Proof Screenshot</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f8f8f8;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .click-link {
+        cursor: pointer;
+        color: #e191b2;
+        text-decoration: underline;
+        font-size: 18px;
+    }
+
+    #myModal {
+        display: none; 
+        position: fixed; 
+        z-index: 999; 
+        padding-top: 50px; 
+        left: 0; 
+        top: 0; 
+        width: 100%; 
+        height: 100%; 
+        background-color: rgba(0,0,0,0.9);
+    }
+
+    #myModal img {
+        margin: auto;
+        display: block;
+        width: 90%;
+        max-width: 900px;
+    }
+
+    #closeBtn {
+        position: absolute;
+        top: 20px;
+        right: 35px;
+        color: white;
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+    .nav-btn {
+        position: absolute;
+        top: 50%;
+        color: white;
+        font-size: 60px;
+        cursor: pointer;
+        user-select: none;
+        padding: 10px;
+    }
+
+    #prevBtn { left: 10px; }
+    #nextBtn { right: 10px; }
+</style>
+</head>
+<body>
+
+<p class="click-link" onclick="openModal()">Click here to view Task Proof Screenshot</p>
+
+<div id="myModal">
+    <span id="closeBtn" onclick="closeModal()">&times;</span>
+    <span id="prevBtn" class="nav-btn" onclick="changeImage(-1)">&#10094;</span>
+    <span id="nextBtn" class="nav-btn" onclick="changeImage(1)">&#10095;</span>
+    <img id="modalImg" src="">
+</div>
+
+<script>
+    const images = [
+    'c:\Users\Administrator\Desktop\MAP\SS IN MAP.png',
+    'c:\Users\Administrator\Desktop\MAP\SS IN MAP1.png',
+    'c:\Users\Administrator\Desktop\MAP\SS IN MAP 2.png',
+    'c:\Users\Administrator\Desktop\MAP\SS IN MAP3.png',
+    'c:\Users\Administrator\Desktop\MAP\SS IN MAP4.png'
+];
+    let currentIndex = 0;
+
+    function openModal() {
+        document.getElementById('myModal').style.display = 'block';
+        currentIndex = 0;
+        document.getElementById('modalImg').src = images[currentIndex];
+    }
+
+    function closeModal() {
+        document.getElementById('myModal').style.display = 'none';
+    }
+
+    function changeImage(direction) {
+        currentIndex += direction;
+        if(currentIndex < 0) currentIndex = images.length - 1;
+        if(currentIndex >= images.length) currentIndex = 0;
+        document.getElementById('modalImg').src = images[currentIndex];
+    }
+    document.getElementById('myModal').addEventListener('click', function(e) {
+        if(e.target.id === 'myModal') closeModal();
+    });
+</script>
+</html>

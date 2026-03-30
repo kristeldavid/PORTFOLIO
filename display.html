@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> LabTask6-1 </title>
+    <style> 
+        input {
+            display: block;
+        }
+
+        button {
+            display: inline-block;
+            vertical-align: middle;
+            width: 60px;
+            margin-left: 10px;
+        }
+
+        img {
+            display: block;     
+            margin: 0 auto 20px auto; 
+            height: 100px;
+            width: auto;                
+        }
+
+        .google {
+            display: block;     
+            margin: 0 auto;     
+            text-align: left;  
+            border-radius: 25px;
+            width: 60%;        
+            height: 40px;
+            padding: 0 20px;
+            border: 1px solid #dfe1e5;
+        }
+
+        .exercise {
+            display: flex;
+            gap: 5px;
+        }
+
+        .email {
+            width: 18.8%;
+            margin-top: 10px;
+        }
+
+        .signup {
+            color: white;
+            background-color: blue;
+            margin-top: 10px;
+            width: 19.4%;
+            margin-left: auto;
+        }
+
+        .signup:hover {
+            background-color: blueviolet;
+            color: white;
+        }
+
+        .ride input {
+            width: 300px;
+            margin-top: 10px;
+            height: 30px;
+        }
+
+        .now {
+            color: white;
+            background-color: rgb(0, 0, 0);
+            width: 130px;
+            margin-top: 10px;
+            margin-left: auto;
+            padding: 5px;
+        }
+
+        .later {
+            margin-top: 10px;
+            width: 130px;
+            margin-left: auto;
+            padding: 5px;
+        }
+
+        .later:hover {
+            background-color: black;
+            color: white;
+        }
+
+        .request {
+            font-size: 20px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: black;
+            background-color: rgb(221, 223, 220);
+        }
+
+        /* CSS PARA SA MODAL SCREENSHOT */
+        .modal-overlay {
+            display: none; /* NAKATAGO ITO SA SIMULA */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            overflow: auto;
+        }
+
+        .modal-content {
+        display: block;
+        width: 100vw;       
+        height: 100vh;      
+        object-fit: contain; 
+     margin: 0;          
+}
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .click-link {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+
+        .task-proof-area {
+            margin-top: 50px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="text" size="14" placeholder="name">
+    <input type="email" size="14" placeholder="email">
+
+    <p> Thanks for chatting with our customer support. Would you 
+        like to take our quick survey?
+        <button type="button">Yes</button>
+        <button type="button">No</button>  
+    </p>
+    <br><br>
+    
+    <img src="c:\Users\Administrator\Desktop\DISPLAY\PICLOGO.jfif" alt="Logo">
+
+    <input type="text" size="14" placeholder="Search Google or type a URL" class="google">
+    <br><br>
+
+    <h1> Sign up form</h1>
+    <div class="exercise">
+        <input type="text" size="14" placeholder="First Name">
+        <input type="password" size="14" placeholder="Last Name">
+    </div>
+    <input type="email" size="14" placeholder="Email" class="email">
+    <button type="button" class="signup">Sign Up</button>  
+
+    <br><br>
+
+    <h1> Uber request a ride form</h1>
+    <label class="request">Request a ride now</label>
+    <div class="ride">
+        <input type="text" size="14" placeholder="Enter pickup location">
+        <input type="text" size="14" placeholder="Enter destination">
+    </div>
+
+    <button type="button" class="now">Request Now</button>
+    <button type="button" class="later">Schedule for later</button> 
+
+    <hr>
+
+    <div class="task-proof-area">
+        <span class="click-link" onclick="pakitaScreenshot()">
+            Click here to view Task Proof Screenshot
+        </span>
+    </div>
+
+    <div id="fullPageModal" class="modal-overlay">
+        <span class="close-button" onclick="itagoScreenshot()">&times;</span>
+        <img class="modal-content" src="c:\Users\Administrator\Desktop\DISPLAY\SS IN DISPLAY.png" alt="Task Proof">
+    </div>
+
+    <script>
+        function pakitaScreenshot() {
+            document.getElementById("fullPageModal").style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+
+        function itagoScreenshot() {
+            document.getElementById("fullPageModal").style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById("fullPageModal");
+            if (event.target == modal) {
+                itagoScreenshot();
+            }
+        }
+    </script>
+
+</body>
+</html>
